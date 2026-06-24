@@ -1,60 +1,94 @@
 class Solution {
     public int romanToInt(String s) {
-       int sum=0;
-       s+=" ";
-       for(int i=0; i<s.length()-1; i++)
-       {
-        if(s.charAt(i)=='I')
-        sum+=1;
-        if(s.charAt(i)=='V')
-        sum+=5;
-        if(s.charAt(i)=='X')
-        sum+=10;
-        if(s.charAt(i)=='L')
-        sum+=50;
-        if(s.charAt(i)=='C')
-        sum+=100;
-        if(s.charAt(i)=='D')
-        sum+=500;
-        if(s.charAt(i)=='M')
-        sum+=1000;
-        if(s.charAt(i)=='I'&&s.charAt(i+1)=='V')
-        {
-            sum-=1;
-            sum+=4;
-            i++;
+        int ans=0;
+        int n=s.length();
+        char[] arr = s.toCharArray();
+        for(int i=n-1;i>=0;i--){
+            if(arr[i]=='I'){
+                ans+=1;
+            }
+            else if(arr[i]=='V'){
+                if(i==0){
+                    ans+=5;
+                }
+                else if(arr[i-1]=='I'){
+                    ans+=5;
+                    ans-=1;
+                    i--;
+                }
+                else{
+                    ans+=5;
+                }
+            }
+            else if(arr[i]=='X'){
+                if(i==0){
+                    ans+=10;
+                }
+                else if(arr[i-1]=='I'){
+                    ans+=10;
+                    ans-=1;
+                    i--;
+                }
+                else{
+                    ans+=10;
+                }
+            }
+            else if(arr[i]=='L'){
+                if(i==0){
+                    ans+=50;
+                }
+                else if(arr[i-1]=='X'){
+                    ans+=50;
+                    ans-=10;
+                    i--;
+                }
+                else{
+                    ans+=50;
+                }
+            }
+            else if(arr[i]=='C'){
+                if(i==0){
+                    ans+=100;
+                }
+                else if(arr[i-1]=='X'){
+                    ans+=100;
+                    ans-=10;
+                    i--;
+                }
+                else{
+                    ans+=100;
+                }
+            }
+            else if(arr[i]=='D'){
+                if(i==0){
+                    ans+=500;
+                }
+                else if(arr[i-1]=='C'){
+                    ans+=500;
+                    ans-=100;
+                    i--;
+                }
+                else{
+                    ans+=500;
+                }
+            }
+            else if(arr[i]=='M'){
+                if(i==0){
+                    ans+=1000;
+                }
+                else if(arr[i-1]=='C'){
+                    ans+=1000;
+                    ans-=100;
+                    i--;
+                }
+                else{
+                    ans+=1000;
+                }
+            }
+            else{
+                continue;
+            }
         }
-          if(s.charAt(i)=='I'&&s.charAt(i+1)=='X')
-        {
-            sum-=1;
-            sum+=9;
-            i++;
-        }
-          if(s.charAt(i)=='X'&&s.charAt(i+1)=='L')
-        {
-            sum-=10;
-            sum+=40;
-            i++;
-        }
-          if(s.charAt(i)=='X'&&s.charAt(i+1)=='C')
-        {
-            sum-=10;
-            sum+=90;
-            i++;
-        }
-           if(s.charAt(i)=='C'&&s.charAt(i+1)=='D')
-        {
-            sum-=100;
-            sum+=400;
-            i++;
-        }
-           if(s.charAt(i)=='C'&&s.charAt(i+1)=='M')
-        {
-            sum-=100;
-            sum+=900;
-            i++;
-        }
-       } 
-       return sum;
+        return ans;
     }
 }
