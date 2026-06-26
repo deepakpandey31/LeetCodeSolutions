@@ -4,8 +4,6 @@ public:
         long rev=0,y=(long)x;
         if(x<0)
         return false;
-        else
-        {
             while(y!=0)
             {
                 rev=(rev*10)+(y%10);
@@ -15,6 +13,5 @@ public:
             return true;
             else
             return false;
-        }
     }
 };
