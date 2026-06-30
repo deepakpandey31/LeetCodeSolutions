@@ -5,7 +5,7 @@ class Solution {
         {
             for(j=i+1; j<nums.length; j++)
             {
-                if((nums[i]-target)+nums[j]==0)//comparing
+                if((nums[i]-target)+nums[j]==0)//comparin
                 {
                     i+=nums.length;
                     break;
