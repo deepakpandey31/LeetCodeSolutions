@@ -1,6 +1,6 @@
 class Solution {
     public int romanToInt(String s) {
-        int ans=0;
+        int ans=0;//storing main answer
         int n=s.length();
         char[] arr = s.toCharArray();
         for(int i=n-1;i>=0;i--){
