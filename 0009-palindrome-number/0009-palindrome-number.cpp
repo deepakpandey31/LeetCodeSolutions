@@ -6,7 +6,7 @@ public:
         return false;
             while(y!=0)
             {
-                rev=(rev*10)+(y%10);//using togethe
+                rev=(rev*10)+(y%10);//using toget
                 y/=10;
             }
             if(rev==x)
